@@ -55,10 +55,28 @@
   --ease-bounce:    cubic-bezier(.34,1.56,.64,1);
 }
 
+/* ── FONT SIZE SCALE (readability) ──────────────────────────── */
+/* [data-font] on <html> sets the --fs-scale multiplier used by every
+   calc(*px * var(--fs-scale)) size in the app. */
+html[data-font="small"]  { --fs-scale: 0.9; }
+html[data-font="medium"] { --fs-scale: 1; }
+html[data-font="large"]  { --fs-scale: 1.12; }
+html[data-font="xlarge"] { --fs-scale: 1.25; }
+
+/* ── THEME RESOLUTION ──────────────────────────────────────── */
+/* data-theme="system" → follow OS preference; JS also resolves to an explicit
+   attribute on load so the rest of CSS can rely on it. */
+@media (prefers-color-scheme: dark) {
+  html[data-theme="system"] { --is-dark: 1; }
+}
+@media (prefers-color-scheme: light) {
+  html[data-theme="system"] { --is-light: 1; }
+}
+
 /* ── DARK THEME ─────────────────────────────────────────────── */
 /* Applied via data-theme="dark" on <html>, or auto when system prefers dark
    AND data-theme is "system" (handled in JS by setting explicit attribute). */
-[data-theme="dark"] {
+[data-theme="dark"], html[data-theme="system"]:where(.dark-resolved) {
   --clr-primary:    #6366f1;
   --clr-primary-l:  #818cf8;
   --clr-primary-d:  #4338ca;
