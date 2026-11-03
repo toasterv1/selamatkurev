@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#070b18" media="(prefers-color-scheme: dark)" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="SelamatKu" />
   <meta name="mobile-web-app-capable" content="yes" />
   <title>SelamatKu — Deteksi & Evakuasi Bencana</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="icons/icon-192.png" type="image/png" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
@@ -61,7 +61,7 @@
       </div>
     </section>
 
-    <!-- TAB: DISASTERS (now multi-hazard feed) -->
+    <!-- TAB: DISASTERS (multi-hazard feed) -->
     <section id="tab-disasters" class="tab-panel">
       <div class="pull-indicator" id="pull-indicator-disasters">↻</div>
       <div class="section-header">
@@ -80,7 +80,7 @@
         <button class="hchip" data-cat="lainnya">❓ Lainnya</button>
       </div>
 
-      <!-- Weather snapshot card (always visible when location known) -->
+      <!-- Weather snapshot card -->
       <div id="weather-card" class="weather-card hidden">
         <div class="weather-now">
           <span id="weather-icon" class="weather-emoji">🌦️</span>
@@ -143,7 +143,7 @@
       </div>
     </section>
 
-    <!-- TAB: HISTORY (now includes event log) -->
+    <!-- TAB: HISTORY (includes event log) -->
     <section id="tab-history" class="tab-panel">
       <div class="section-header">
         <h2>📋 Riwayat &amp; Catatan</h2>
@@ -172,7 +172,7 @@
         </div>
       </div>
 
-      <!-- Event log (new) -->
+      <!-- Event log -->
       <div class="history-section">
         <h3 class="subsection-title">📰 Catatan Kejadian Bencana</h3>
         <div id="event-log-list" class="card-list">
@@ -279,7 +279,7 @@
     <button id="btn-auto-scan" class="btn-primary btn-sm">Scan Sekarang</button>
   </div>
 
-  <!-- ── AI CHATBOT PANEL (new) ──────────────────────────── -->
+  <!-- ── AI CHATBOT PANEL ─────────────────────────────────── -->
   <div id="chat-panel" class="chat-panel hidden">
     <div class="chat-header">
       <div class="chat-title">
@@ -307,7 +307,7 @@
     </form>
   </div>
 
-  <!-- ── SETTINGS PANEL (new) ────────────────────────────── -->
+  <!-- ── SETTINGS PANEL ────────────────────────────────────── -->
   <div id="settings-overlay" class="settings-overlay hidden">
     <div class="settings-panel">
       <div class="settings-header">
@@ -332,6 +332,14 @@
             <button data-font="xlarge">Sgt Besar</button>
           </div>
           <p class="setting-hint">Pengaturan ini membantu keterbacaan untuk berbagai kondisi cahaya &amp; penglihatan.</p>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">🧠 Mode Asisten</label>
+          <div class="seg-control" id="chat-mode-control">
+            <button data-chatmode="local">📱 Offline</button>
+            <button data-chatmode="ai">🤖 AI</button>
+          </div>
+          <p class="setting-hint">Offline: jawaban instan dari basis data lokal. AI: jawaban lebih kontekstual (butuh internet &amp; server terkonfigurasi).</p>
         </div>
       </div>
     </div>
@@ -416,6 +424,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
